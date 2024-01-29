@@ -1,46 +1,81 @@
-.leftContainer{
-    background-color: var(--bgColorLight);
-    margin: 0;
-   
-    padding: 3rem;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10rem
-}
-.rightContainer{
-  
-    padding: 3rem;
-    background-color: var(--bgBlue);
-    width: 40%;
-}
-
-.textContainer{
-    width: 25%;
-    padding: 2rem;
-}
-.TextImg{
-width: 30%;
+.leftContainer {
+  background-color: var(--bgColorLight);
+  margin: 0;
+  padding: 3rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 }
-
-.jacketImg{
-    width: 25%;
-}
-.upperText{
-    align-items: start;
-    justify-content: space-between;
-    padding-right: 4rem;
-}
-.imageContainer{
-    width: fit-content;
+.rightContainer {
+  padding: 3rem;
+  background-color: var(--bgBlue);
+  width: 40%;
 }
 
-.lowerText{
-    justify-content: space-around;
-    align-items: center;
+.textContainer {
+  width: 25%;
+  padding: 2rem;
+  min-width: 300px;
 }
-.Img{
+.TextImg {
+  width: 30%;
+  min-width: 250px;
+}
+
+.jacketImg {
+  width: 25%;
+  min-width: 150px;
+}
+.upperText {
+  align-items: start;
+  justify-content: space-between;
+  padding-right: 4rem;
+}
+
+.lowerText {
+  justify-content: space-around;
+  align-items: center;
+}
+.Img {
+  width: 100%;
+}
+
+.shoeImg{
+  width: 100%;
+  height: 500px;
+  background: url(../../../public/shoes.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  margin-top: 3rem;
+  background-position: center;
+  border-radius: 30px;
+}
+
+@media(max-width:1500px){
+  .rightContainer{
+    display: none;
+  }
+  .leftContainer{
     width: 100%;
+  }
+}
+@media (max-width:948px) {
+  .upperText{
+    flex-direction: column;
+    }
+    .textContainer{
+      width: 100%;
+      min-width: 300px;
+    }
+    .TextImg{
+      margin-left: 1rem;
+    }
+    .jacketImg{
+
+    }
+    .lowerText{
+      flex-direction: column;
+    }
 }

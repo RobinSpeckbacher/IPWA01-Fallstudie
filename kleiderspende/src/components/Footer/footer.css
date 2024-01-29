@@ -1,86 +1,85 @@
 .f-wrapper {
-    background: var(--bgColor);
-  }
-  .f-container {
-    justify-content: space-around;
-    display: flex;
-  }
-  
-  .f-left {
-    gap: 1rem;
-  }
-  
-  .f-menu {
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    font-weight: 500;
-    display: flex;
-  }
-  
-  .f-right{
-    display: flex;
-    align-items: center;
-  }
-  .f-menu > a {
-    color: white;
-  }
-  
-  .f-menu a {
-    position: relative;
-  }
-  
-  .navbottom::after {
-    content: "";
-    height: 2px;
-    width: 0%;
-    background: orange;
-    position: absolute;
-    transition: all 0.7s;
-    pointer-events: none;
-    left: 0;
-    bottom: -4px;
-    pointer-events: none;
-    opacity: 0;
-  }
-  
-  .navbottom:hover::after {
-    opacity: 1;
-    width: 100%;
-  }
-  .flexColStart {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
-  .paddings {
-    padding: 1.5rem;
-  }
-  
-  .innerWidth {
-    width: 100%;
-  }
-
-  .flexColCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-a{
-    text-decoration: none;
+  background: var(--bgColor);
 }
 
-  @media (max-width: 768px) {
-    .f-container {
-      justify-content: center;
-    }
-    .f-container > div {
-      align-items: center !important;
-    }
-    .f-wrapper {
-      margin-bottom: 4rem;
-    }
+.f-container {
+  justify-content: space-around;
+  display: flex;
+  padding: 2rem;
+}
+
+.f-left {
+  gap: 1rem;
+  align-self: center;
+}
+
+.f-menu {
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.f-right {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.f-menu > a {
+  color: white;
+  margin-right: 1.5rem; /* Add spacing between menu items */
+}
+
+.f-menu a {
+  position: relative;
+}
+
+.navbottom::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background: orange;
+  position: absolute;
+  transition: all 0.7s;
+  pointer-events: none;
+  left: 0;
+  bottom: -4px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navbottom:hover::after {
+  opacity: 1;
+  width: 100%;
+}
+
+.flexColCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+.f-wrapper .secondaryText {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .f-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
+  .f-right {
+    text-align: center;
+  }
+
+  .f-menu > a {
+    margin-right: 0; /* Remove margin between menu items on smaller screens */
+    margin-bottom: 1rem; /* Add spacing between menu items vertically */
+  }
+}

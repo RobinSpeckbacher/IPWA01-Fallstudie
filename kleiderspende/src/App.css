@@ -1,26 +1,35 @@
-:root{
+:root {
   --bgColor: #0e161c;
-  --textLight: #E8AD74;
-  --bgColorLight:#F3EBE1;
-  --bgBlue: #D3E2E8;
+  --textLight: #e8ad74;
+  --bgColorLight: #f3ebe1;
+  --bgBlue: #d3e2e8;
+}
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.flexContainer{
+.flexContainer {
   display: flex;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.flexAlignment{
+.flexAlignment {
   justify-content: space-around;
   align-items: center;
 }
 
-.primaryText{
-  color: #2C2625;
+.primaryText {
+  color: #2c2625;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
-.secondaryText{
-  color:#C4C0BE; 
+.secondaryText {
+  color: #333;
+  font-family: "Roboto", sans-serif;
 }

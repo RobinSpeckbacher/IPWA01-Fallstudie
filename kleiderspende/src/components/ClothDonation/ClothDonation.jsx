@@ -20,31 +20,31 @@ const ClothDonation = () => {
               Welt durch die Kraft des Gebens verändern.
             </p>
           </div>
-          
         </div>
       </div>
 
       <img src="/shirt.png" alt="Logo" className="imageContainer" />
       <div className="ContainerRight">
         <div className="container">
-        <h1 className="primaryText">Sie sind noch nicht überzeugt?</h1>
-        <p className="secondaryText">
-          Gemeinschaft fördern: Durch Kleiderspenden trägst du dazu bei, eine
-          unterstützende Gemeinschaft aufzubauen. Deine Spenden werden zu einem
-          Zeichen der Solidarität und Liebe für diejenigen, die sie erhalten.
-        </p>
-        <p className="secondaryText">
-          Nachhaltigkeit fördern: Indem du deine Kleidung spendest, reduzierst
-          du nicht nur Abfall, sondern förderst auch die Nachhaltigkeit. Jedes
-          recycelte Kleidungsstück ist ein Schritt in Richtung einer grüneren,
-          umweltfreundlicheren Welt.
-        </p>
-        <p className="secondaryText">
-          Hilfe für Bedürftige: Deine Spenden können einen direkten Einfluss auf
-          das Leben von Menschen haben, die sie dringend benötigen. Ob es um
-          finanzielle Unterstützung, Arbeitskleidung oder Wärme für die kalten
-          Monate geht – deine Kleiderspenden machen einen Unterschied.
-        </p>
+          <h1 className="primaryText">Sie sind noch nicht überzeugt?</h1>
+          <p className="secondaryText">
+            Gemeinschaft fördern: Durch Kleiderspenden trägst du dazu bei, eine
+            unterstützende Gemeinschaft aufzubauen. Deine Spenden werden zu
+            einem Zeichen der Solidarität und Liebe für diejenigen, die sie
+            erhalten.
+          </p>
+          <p className="secondaryText">
+            Nachhaltigkeit fördern: Indem du deine Kleidung spendest, reduzierst
+            du nicht nur Abfall, sondern förderst auch die Nachhaltigkeit. Jedes
+            recycelte Kleidungsstück ist ein Schritt in Richtung einer grüneren,
+            umweltfreundlicheren Welt.
+          </p>
+          <p className="secondaryText">
+            Hilfe für Bedürftige: Deine Spenden können einen direkten Einfluss
+            auf das Leben von Menschen haben, die sie dringend benötigen. Ob es
+            um finanzielle Unterstützung, Arbeitskleidung oder Wärme für die
+            kalten Monate geht – deine Kleiderspenden machen einen Unterschied.
+          </p>
         </div>
       </div>
     </section>

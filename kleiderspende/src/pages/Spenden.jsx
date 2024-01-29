@@ -1,13 +1,13 @@
-import Header from "../components/Header/Header"
-import React from 'react'
-
+import Header from "../components/Header/Header";
+import React from "react";
+import SpendenFormular from "../components/SpendenFormular/SpendenFormular.tsx"
 const Spenden = () => {
   return (
     <>
-        <Header />
-        <h2>HomePage</h2>
+  
+      <SpendenFormular/>
     </>
-  )
-}
+  );
+};
 
-export default Spenden
+export default Spenden;

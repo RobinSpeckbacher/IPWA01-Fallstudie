@@ -14,7 +14,7 @@
 
 .box {
   background: var(--bgColor);
-  min-width: 500px;
+  width: 80%; /* Adjusted width to 80% */
   margin: 0 auto;
   padding: 3rem;
   text-align: center;
@@ -22,19 +22,36 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  width: 30%;
+  max-width: 800px;
 }
+
 .box h1,
-p {
+.box p {
   color: #fff;
 }
-.box button {
+
+.box a{
   font-weight: 500;
   padding: 0.6rem 1.4rem;
   color: white;
   background: #ff378f;
   border: none;
-
   border-radius: 4px;
   transition: all 300ms ease-in;
+}
+
+.box a:hover {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .box {
+    width: 90%; /* Adjusted width for smaller screens */
+  }
+  .bgContent {
+    padding: 2rem 0;
+    height: unset;
+  }
 }

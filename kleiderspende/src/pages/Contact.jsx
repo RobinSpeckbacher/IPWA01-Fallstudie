@@ -1,9 +1,14 @@
 import Header from "../components/Header/Header"
 import React from 'react'
-
+import ContactForm from "../components/Contact/ContactFormular"
+import Footer from "../components/Footer/Footer"
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <Header />
+      <ContactForm/>
+      <Footer/>
+      </div>
   )
 }
 

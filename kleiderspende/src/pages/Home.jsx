@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from "../components/Header/Header"
 import Hero from '../components/Hero/Hero'
-import ClothDescribtion from "../components/ClothDescribtion/Cloth"
 import ClothDonation from '../components/ClothDonation/ClothDonation'
 import Footer from '../components/Footer/Footer'
-const Home = () => {
+import MobileNav from '../components/Header/MobileNav' 
+
+  const Home = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
   return (
     <div>
-        <Header />
+{windowWidth > 1100 ? <Header /> : <MobileNav />}
+
         <Hero />
        
         <ClothDonation />
