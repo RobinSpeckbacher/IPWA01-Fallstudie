@@ -1,0 +1,46 @@
+.leftContainer{
+    background-color: var(--bgColorLight);
+    margin: 0;
+   
+    padding: 3rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10rem
+}
+.rightContainer{
+  
+    padding: 3rem;
+    background-color: var(--bgBlue);
+    width: 40%;
+}
+
+.textContainer{
+    width: 25%;
+    padding: 2rem;
+}
+.TextImg{
+width: 30%;
+
+}
+
+.jacketImg{
+    width: 25%;
+}
+.upperText{
+    align-items: start;
+    justify-content: space-between;
+    padding-right: 4rem;
+}
+.imageContainer{
+    width: fit-content;
+}
+
+.lowerText{
+    justify-content: space-around;
+    align-items: center;
+}
+.Img{
+    width: 100%;
+}
