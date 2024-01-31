@@ -3,11 +3,11 @@ body{
 }
 .formContainer{
     width: 100%;
-   
+   margin-top: 3rem;
    align-items: center;
    justify-content: space-around;
- min-height: 1000px;
-    height: 80vh;
+ min-height: 900px;
+    height: 70vh;
 }
 
 .contactform{
@@ -87,10 +87,31 @@ body{
 font-size: 3rem;
 }
 
-.formTextContainer p{
-    font-size: 1.5rem;
+
+@media screen and (max-width: 900px) {
+    .row {
+        padding: 20px; /* Verringern Sie den Padding für kleinere Bildschirme */
+    }
+
+    .row input,
+    .row textarea,
+    .row button {
+        width: 100%; /* Vollbreite für kleinere Bildschirme */
+    }
+
+    .contactform {
+        width: 90%; /* Verringern Sie die Breite des Formulars für kleinere Bildschirme */
+        padding: 1rem;
+    }
+    .formTextContainer h1{
+        font-size: 2rem;
+        text-align: center;
+        }
 }
 
-.formTextContainer span{
-    font-size: 1.2rem;
+/* Styles für Bildschirmgrößen zwischen 600px und 1024px (Tablets) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .row {
+        max-width: 80%; /* Reduzieren Sie die maximale Breite des Formulars für Tablets */
+    }
 }

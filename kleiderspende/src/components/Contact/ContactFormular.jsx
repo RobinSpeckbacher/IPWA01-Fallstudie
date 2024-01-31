@@ -40,20 +40,8 @@ const Contact = () => {
       <div className="formContainer">
         <div className="formLeft">
           <div className="formTextContainer">
-          <h1>Get in Touch</h1>
+          <h1>Fragen oder Probleme? Melde dich!</h1>
        
-          <div className="contactContainer">
-            <p>Tel:</p>
-            <span>+111111111</span>
-          </div>
-          <div className="contactContainer">
-            <p>Email:</p>
-            <span>MaxMustermann@gmail.com</span>
-          </div>
-          <div className="contactContainer">
-            <p>Adresse:</p>
-            <span>Musterstraße 12, 1111 Musterort</span>
-          </div>
           </div>
         </div>
         <form

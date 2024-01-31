@@ -48,7 +48,7 @@
 /* Media query for responsiveness */
 @media (max-width: 768px) {
   .box {
-    width: 90%; /* Adjusted width for smaller screens */
+    width: 90%; 
   }
   .bgContent {
     padding: 2rem 0;

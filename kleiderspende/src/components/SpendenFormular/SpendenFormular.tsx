@@ -23,6 +23,7 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import Dropdown from "@mui/joy/Dropdown";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -66,6 +67,7 @@ function ColorSchemeToggle(props: IconButtonProps) {
 }
 
 function DonationForm() {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState<string | null>("");
 
   const handleSelectChange = (
@@ -78,28 +80,46 @@ function DonationForm() {
 
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={(event: any) => {
         event.preventDefault();
-        // Your form submission logic here
+
         const formElements = event.currentTarget.elements;
-        const data = {
-          clothingType: formElements.clothingType.value,
-          crisisArea: formElements.crisisArea.value,
-          date: formElements.date.value,
-          time: formElements.time.value,
-          location: formElements.location.value,
-          pickupOption: formElements.pickupOption.checked
-            ? "Abholung"
-            : "Übergabe an der Geschäftsstelle",
-          abholadresse: formElements.abholadresse.value,
-        };
-        alert(JSON.stringify(data, null, 2));
+        console.dir(formElements);
+       
+        const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
+        
+
+          const data = {
+            clothingType: formElements.clothingType[1]?.value,
+            crisisArea: formElements.crisisArea[1]?.value,
+            date: formElements.date?.value,
+            time: formElements.time?.value,
+            location: formElements.location?.value,
+            pickupOption: selectedOption,
+            abholadresse: formElements.abholadresse?.value,
+          };
+          
+          const inputDate = new Date(data.date)
+          const enteredZipCode = String(formElements.location?.value);
+
+          if(inputDate <= currentDate){
+            alert("Das eingegebene Datum muss größer als das aktuelle Datum sein.");
+            return;
+          }else if(selectedOption === "Abholung" && !enteredZipCode.startsWith("54")){
+            alert("Die eingegebene Postleitzahl muss mit '54' beginnen.")
+            return;
+          }else{
+           // DonationsForm-Komponente
+        navigate("/Confirmation", { state: { donationData: data } });
+
+          }
       }}
     >
       <FormControl required>
         <FormLabel>Art der Kleidung</FormLabel>
-        <Select>
-          <Option value="Jean">T-Shirts</Option>
+        <Select required name="clothingType">
+          <Option value="T-Shirt">T-Shirts</Option>
           <Option value="Hemden/Blusen">Hemden/Blusen</Option>
           <Option value="Pullover">Pullover</Option>
           <Option value="Jacken/Mäntel">Jacken/Mäntel</Option>
@@ -113,8 +133,8 @@ function DonationForm() {
         </Select>
       </FormControl>
       <FormControl required>
-        <FormLabel>Krisengebiet</FormLabel>
-        <Select>
+        <FormLabel >Krisengebiet</FormLabel>
+        <Select required name="crisisArea">
           <Option value="Syrien">Syrien</Option>
           <Option value="Afghanistan">Afghanistan</Option>
           <Option value="Jemen">Jemen</Option>
@@ -141,8 +161,12 @@ function DonationForm() {
         </Select>
       </FormControl>
       <FormControl required>
-        <FormLabel>Übergabeoption</FormLabel>
-        <Select value={selectedOption} onChange={handleSelectChange}>
+        <FormLabel >Übergabeoption</FormLabel>
+        <Select required
+          name="pickupOption"
+          value={selectedOption}
+          onChange={handleSelectChange}
+        >
           <Option value="Abholung">Abholung</Option>
           <Option value="Übergabe an der Geschäftsstelle">
             Übergabe an der Geschäftsstelle
@@ -156,25 +180,25 @@ function DonationForm() {
             <FormLabel>Postleitzahl</FormLabel>
             <Input type="text" name="location" placeholder="zb. 5400" />
           </FormControl>
-          <FormControl>
+          <FormControl required>
             <FormLabel>Abholadresse</FormLabel>
             <Input type="text" name="abholadresse" />
           </FormControl>
           <FormControl required>
-            <FormLabel>gewünschtes Abholdatum</FormLabel>
+            <FormLabel required>gewünschtes Abholdatum</FormLabel>
             <Input type="date" name="date" />
           </FormControl>
           <FormControl required>
             <FormLabel>Uhrzeit</FormLabel>
             <Input type="time" name="time" />
           </FormControl>
-          <Stack gap={4} sx={{ mt: 2 }}>
-            <Button type="submit" fullWidth>
-              Registrieren
-            </Button>
-          </Stack>
         </div>
       )}
+      <Stack gap={4} sx={{ mt: 2 }}>
+        <Button type="submit" fullWidth>
+          Registrieren
+        </Button>
+      </Stack>
     </form>
   );
 }
@@ -231,7 +255,11 @@ export default function JoySignInSideTemplate() {
             }}
           >
             <Box sx={{ gap: 2, display: "flex", alignItems: "center" }}>
-              <Typography level="title-lg"><a href="/home">return to Homepage</a></Typography>
+              <Typography level="title-lg">
+                <a className="return" href="/home">
+                  zurück zur Hauptseite
+                </a>
+              </Typography>
             </Box>
             <ColorSchemeToggle />
           </Box>
@@ -262,7 +290,7 @@ export default function JoySignInSideTemplate() {
           </Box>
           <Box component="footer" sx={{ py: 3 }}>
             <Typography level="body-xs" textAlign="center">
-              © Your company {new Date().getFullYear()}
+              © KleiderSpenden {new Date().getFullYear()}
             </Typography>
           </Box>
         </Box>
@@ -282,8 +310,7 @@ export default function JoySignInSideTemplate() {
           backgroundSize: "cover",
           backgroundPosition: "top",
           backgroundRepeat: "no-repeat",
-          backgroundImage:
-            "url(/manequin.png)",
+          backgroundImage: "url(/manequin.png)",
           [theme.getColorSchemeSelector("dark")]: {
             backgroundImage:
               "url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",

@@ -18,11 +18,11 @@ const Header = () => {
         <img src="/Logo.png" alt="Logo" className="logoImg" />
         <div className="headerText">
           <h1>Kleiderspenden</h1>
-          <p>gutes tun und Spenden</p>
+          <p>Gutes tun und spenden</p>
         </div>
       </div>
       <div className="Navbar">
-        <h1 className="text">We are Clothing Donation</h1>
+        <h1 className="text"> Weil spenden etwas bewirkt</h1>
         <ul className="flexContainer nav">
           <li>
             <a href="/home" className="navlink">
