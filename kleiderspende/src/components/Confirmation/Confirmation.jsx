@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "./confirmation.css";
-import { display } from "@mui/system";
+
 const Confirmation = () => {
   // Confirmation-Komponente
   const location = useLocation();
@@ -17,7 +17,12 @@ const Confirmation = () => {
       <div className="ItemContainer">
         <p>Art der Kleidung: {donationData.clothingType}</p>
         <p>Krisengebiet: {donationData.crisisArea}</p>
-        <div style={{ display: donationData.pickupOption === "Abholung" ? "block" : "none" }}>
+        <div
+          style={{
+            display:
+              donationData.pickupOption === "Abholung" ? "block" : "none",
+          }}
+        >
           <p>Abholadresse: {donationData.abholadresse}</p>
           <p>Datum: {donationData.date}</p>
           <p>Uhrzeit: {donationData.time}</p>
@@ -25,7 +30,9 @@ const Confirmation = () => {
       </div>
       <div className="FaqContainer">
         <p>Sollten Sie Fragen haben, kontaktieren Sie uns bitte unter.</p>
-        <a className="buttonFaq" href="/contact">Kontakt</a>
+        <a className="buttonFaq" href="/contact">
+          Kontakt
+        </a>
       </div>
     </section>
   );

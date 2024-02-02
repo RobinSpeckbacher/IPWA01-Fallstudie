@@ -4,24 +4,16 @@ import GlobalStyles from "@mui/joy/GlobalStyles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
-import Checkbox from "@mui/joy/Checkbox";
-import Divider from "@mui/joy/Divider";
 import FormControl from "@mui/joy/FormControl";
 import FormLabel, { formLabelClasses } from "@mui/joy/FormLabel";
 import IconButton, { IconButtonProps } from "@mui/joy/IconButton";
-import Link from "@mui/joy/Link";
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
-import BadgeRoundedIcon from "@mui/icons-material/BadgeRounded";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
-import MenuItem from "@mui/joy/MenuItem";
-import Dropdown from "@mui/joy/Dropdown";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -85,35 +77,38 @@ function DonationForm() {
 
         const formElements = event.currentTarget.elements;
         console.dir(formElements);
-       
+
         const currentDate = new Date();
-        currentDate.setHours(0,0,0,0);
-        
+        currentDate.setHours(0, 0, 0, 0);
 
-          const data = {
-            clothingType: formElements.clothingType[1]?.value,
-            crisisArea: formElements.crisisArea[1]?.value,
-            date: formElements.date?.value,
-            time: formElements.time?.value,
-            location: formElements.location?.value,
-            pickupOption: selectedOption,
-            abholadresse: formElements.abholadresse?.value,
-          };
-          
-          const inputDate = new Date(data.date)
-          const enteredZipCode = String(formElements.location?.value);
+        const data = {
+          clothingType: formElements.clothingType[1]?.value,
+          crisisArea: formElements.crisisArea[1]?.value,
+          date: formElements.date?.value,
+          time: formElements.time?.value,
+          location: formElements.location?.value,
+          pickupOption: selectedOption,
+          abholadresse: formElements.abholadresse?.value,
+        };
 
-          if(inputDate <= currentDate){
-            alert("Das eingegebene Datum muss größer als das aktuelle Datum sein.");
-            return;
-          }else if(selectedOption === "Abholung" && !enteredZipCode.startsWith("54")){
-            alert("Die eingegebene Postleitzahl muss mit '54' beginnen.")
-            return;
-          }else{
-           // DonationsForm-Komponente
-        navigate("/Confirmation", { state: { donationData: data } });
+        const inputDate = new Date(data.date);
+        const enteredZipCode = String(formElements.location?.value);
 
-          }
+        if (inputDate <= currentDate) {
+          alert(
+            "Das eingegebene Datum muss größer als das aktuelle Datum sein."
+          );
+          return;
+        } else if (
+          selectedOption === "Abholung" &&
+          !enteredZipCode.startsWith("54")
+        ) {
+          alert("Die eingegebene Postleitzahl muss mit '54' beginnen.");
+          return;
+        } else {
+          // DonationsForm-Komponente
+          navigate("/Confirmation", { state: { donationData: data } });
+        }
       }}
     >
       <FormControl required>
@@ -133,7 +128,7 @@ function DonationForm() {
         </Select>
       </FormControl>
       <FormControl required>
-        <FormLabel >Krisengebiet</FormLabel>
+        <FormLabel>Krisengebiet</FormLabel>
         <Select required name="crisisArea">
           <Option value="Syrien">Syrien</Option>
           <Option value="Afghanistan">Afghanistan</Option>
@@ -161,8 +156,9 @@ function DonationForm() {
         </Select>
       </FormControl>
       <FormControl required>
-        <FormLabel >Übergabeoption</FormLabel>
-        <Select required
+        <FormLabel>Übergabeoption</FormLabel>
+        <Select
+          required
           name="pickupOption"
           value={selectedOption}
           onChange={handleSelectChange}
