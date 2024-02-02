@@ -23,22 +23,22 @@ const MobileNav = () => {
         <a href="#" className="nav-branding"></a>
         <ul className={`nav-menu ${isActive ? "active" : ""}`}>
           <li className="nav-item">
-            <a href="#" className="nav-link" onClick={closeNav}>
+            <a href="/home" className="nav-link" onClick={closeNav}>
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link" onClick={closeNav}>
+            <a href="/about" className="nav-link" onClick={closeNav}>
               About
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link" onClick={closeNav}>
+            <a href="/spenden" className="nav-link" onClick={closeNav}>
               Spenden
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link" onClick={closeNav}>
+            <a href="/contact" className="nav-link" onClick={closeNav}>
               Kontakt
             </a>
           </li>
