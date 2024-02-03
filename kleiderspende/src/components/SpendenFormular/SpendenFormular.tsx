@@ -93,7 +93,8 @@ function DonationForm() {
 
         const inputDate = new Date(data.date);
         const enteredZipCode = String(formElements.location?.value);
-
+        const plzCheck = String("54")
+        
         if (inputDate <= currentDate) {
           alert(
             "Das eingegebene Datum muss größer als das aktuelle Datum sein."
@@ -101,7 +102,7 @@ function DonationForm() {
           return;
         } else if (
           selectedOption === "Abholung" &&
-          !enteredZipCode.startsWith("54")
+          !enteredZipCode.startsWith(plzCheck)
         ) {
           alert("Die eingegebene Postleitzahl muss mit '54' beginnen.");
           return;
